@@ -1,4 +1,7 @@
 package minru.chen.bloghbn.service;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface UserRpository extends JpaRepository{
+
 }
