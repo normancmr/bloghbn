@@ -1,36 +1,34 @@
 package minru.chen.bloghbn;
 
-import minru.chen.bloghbn.Utils.HibernateUtil;
-import minru.chen.bloghbn.model.Blog;
+import minru.chen.bloghbn.Utils.HibernateUtils;
 import minru.chen.bloghbn.model.User;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 
+@SpringBootTest
 public class HibernateTest {
 
-
     @Test
-    public void testDB(){
-        Session session=null;
+    public void testDB() {
+        Session session=HibernateUtils.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
         try {
-            session=HibernateUtil.getSession();
-            session.beginTransaction();
-            User user=new User();
-            user.setNickname("minru");
-            user.setPassword("dsf");
+            User user= new User();
+            user.setNickname("Mi2nru");
+            user.setUsername("minru");
+            user.setPassword("123");
             session.save(user);
-            session.getTransaction().commit();
-        }catch (Exception e){
+            transaction.commit();
+        }catch (HibernateException e){
+            System.out.println();
             e.printStackTrace();
-        }finally {
-            HibernateUtil.closeSession(session);
         }
+
+
     }
-
 }
-
 

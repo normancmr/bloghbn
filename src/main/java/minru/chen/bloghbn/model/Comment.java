@@ -13,11 +13,20 @@ public class Comment {
     private String nickname;
     private String email;
     private String content;
-    private String avatar;
+    private Long blog_id;
+    private Long user_id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
     public Comment() {
+    }
+
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public Long getId() {
@@ -52,12 +61,12 @@ public class Comment {
         this.content = content;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public Long getBlog_id() {
+        return blog_id;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setBlog_id(Long blog_id) {
+        this.blog_id = blog_id;
     }
 
     public Date getCreateTime() {
@@ -75,7 +84,7 @@ public class Comment {
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
-                ", avatar='" + avatar + '\'' +
+                ", avatar='" + blog_id + '\'' +
                 ", createTime=" + createTime +
                 '}';
     }

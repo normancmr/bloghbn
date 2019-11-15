@@ -1,25 +1,17 @@
 package minru.chen.bloghbn.model;
 
-import org.hibernate.annotations.GeneratorType;
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.beans.factory.annotation.Required;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="t_user")
+@Table(name = "t_user")
 public class User {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column( name = "id",updatable = false,nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickname;
+    @Column(unique = true)
     private String username;
     private String password;
     @Temporal(TemporalType.TIMESTAMP)
@@ -27,8 +19,6 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date LoginTime;
     private String email;
-    @Basic(fetch = FetchType.LAZY)
-    private Icon icon;
 
     public User() {
     }
@@ -87,14 +77,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Icon getIcon() {
-        return icon;
-    }
-
-    public void setIcon(Icon icon) {
-        this.icon = icon;
     }
 
     @Override

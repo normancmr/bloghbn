@@ -8,11 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "t_blog")
 public class Blog implements Serializable {
-    public static final long serialVersionUID =1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private User user;
+    private Long user_id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -21,7 +20,6 @@ public class Blog implements Serializable {
     private String summary;
     private String filename;
 
-    private List<Comment> commentList;
 
     public Long getId() {
         return id;
@@ -29,14 +27,6 @@ public class Blog implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Date getCreateTime() {
@@ -79,11 +69,11 @@ public class Blog implements Serializable {
         this.filename = filename;
     }
 
-    public List<Comment> getCommentList() {
-        return commentList;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 }

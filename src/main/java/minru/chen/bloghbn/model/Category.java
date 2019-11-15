@@ -4,28 +4,36 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "t_categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Long id;
+    private Long user_id;
     private String name;
 
     private String text;
-
+    @Temporal(TemporalType.TIMESTAMP)
     private Date datetime;
-
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
     public Category() {
     }
 
-    public Integer getId() {
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

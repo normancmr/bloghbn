@@ -1,28 +1,29 @@
 package minru.chen.bloghbn.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "t_icon")
 public class Icon {
     @Id
-    private int iconID;
-    private int userID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long iconID;
+    private Long userID;
     private String filename;
 
-    public int getIconID() {
+    public Long getIconID() {
         return iconID;
     }
 
-    public void setIconID(int iconID) {
+    public void setIconID(Long iconID) {
         this.iconID = iconID;
     }
 
-    public int getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 
