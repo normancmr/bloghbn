@@ -4,9 +4,10 @@ Spring:
     cache: false
 
 file:
-  root: ~/bloghbn/userdata/
+  root: /var/tmp/bloghbn/userdata/
+
 logging:
   level:
     root: info
   file:
-    path: ~/bloghbn/logs
+    path: /var/tmp/bloghbn/logs

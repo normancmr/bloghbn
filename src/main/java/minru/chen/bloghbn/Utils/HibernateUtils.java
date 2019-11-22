@@ -29,6 +29,12 @@ public class HibernateUtils {
     @SuppressWarnings({"unchecked", "rawtypes", "serial"})
     private static final List<Class<?>> classList = new ArrayList() {{
         add(minru.chen.bloghbn.model.User.class);
+        add(minru.chen.bloghbn.model.Blog.class);
+        add(minru.chen.bloghbn.model.Comment.class);
+        add(minru.chen.bloghbn.model.Category.class);
+        add(minru.chen.bloghbn.model.Type.class);
+        add(minru.chen.bloghbn.model.Icon.class);
+
     }};
     private static SessionFactory sessionFactory = buildSessionFactory();
 

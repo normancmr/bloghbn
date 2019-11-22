@@ -1,17 +1,19 @@
 package minru.chen.bloghbn.model;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
 @Entity
 @Table(name = "t_blog")
-public class Blog implements Serializable {
+public class Blog implements Cloneable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long user_id;
+    private Long visited;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -75,5 +77,23 @@ public class Blog implements Serializable {
 
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", createTime=" + createTime +
+                ", upateTime=" + upateTime +
+                ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", filename='" + filename + '\'' +
+                '}';
+    }
+
+    @Override
+    public Blog clone() throws CloneNotSupportedException {
+        return (Blog)super.clone();
     }
 }
