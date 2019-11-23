@@ -65,7 +65,7 @@ public class BlogDaoImp implements BlogDao {
         try {
             session.save(blog);
             transaction.commit();
-            log.info("Success add Blog: " + blog.toString());
+            log.info("Successful added Blog: " + blog.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class BlogDaoImp implements BlogDao {
         try {
             session.update(blog);
             transaction.commit();
-            log.info("Success update Blog: " + blog.toString());
+            log.info("Successful updated Blog: " + blog.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class BlogDaoImp implements BlogDao {
         try {
             session.delete(blog);
             transaction.commit();
-            log.info("Success delete Blog: " + blog.toString());
+            log.info("Successful delete Blog: " + blog.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();

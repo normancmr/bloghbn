@@ -2,8 +2,8 @@ package minru.chen.bloghbn.DAO;
 
 import lombok.extern.slf4j.Slf4j;
 import minru.chen.bloghbn.Utils.HibernateUtils;
-import minru.chen.bloghbn.model.Blog;
 import minru.chen.bloghbn.model.Category;
+import minru.chen.bloghbn.model.Type;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -14,30 +14,30 @@ import java.util.List;
 /**
  * Author: minru
  * Date: 11/22/19
- * Time: 4:23 PM
+ * Time: 4:39 PM
  */
 @Slf4j
 @Repository
-public class CategoryDaoImp implements CategoryDao {
+public class TypeDaoImp implements TypeDao {
     @Override
-    public List<Category> listCateByUserId(Long user_id) {
+    public List<Type> listTypebyUserId(Long userId) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Category as C where C.user_id=:user_id";
+        String hql = "from Type as T where T.id=:user_id";
         Query query = session.createQuery(hql);
-        query.setParameter("user_id", user_id);
-        List<Category> categories = query.list();
-        return categories;
+        query.setParameter("user_id", userId);
+        List<Type> Types = query.list();
+        return Types;
     }
 
     @Override
-    public boolean insertCate(Category category) {
+    public boolean insertType(Type type) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.save(category);
+            session.save(type);
             transaction.commit();
-            log.info("Successful add Category: " + category.toString());
+            log.info("Successful add Type: " + type.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,13 +49,13 @@ public class CategoryDaoImp implements CategoryDao {
     }
 
     @Override
-    public boolean updateCate(Category category) {
+    public boolean updateType(Type type) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.update(category);
+            session.update(type);
             transaction.commit();
-            log.info("Successful update Blog: " + category.toString());
+            log.info("Successful updated Type: " + type.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,13 +67,13 @@ public class CategoryDaoImp implements CategoryDao {
     }
 
     @Override
-    public boolean deleteCate(Category category) {
+    public boolean deleteType(Type type) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.delete(category);
+            session.delete(type);
             transaction.commit();
-            log.info("Successful deleted Blog: " + category.toString());
+            log.info("Successful deleted Type: " + type.toString());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
