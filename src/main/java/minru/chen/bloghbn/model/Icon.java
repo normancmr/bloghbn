@@ -1,7 +1,10 @@
 package minru.chen.bloghbn.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "t_icon")
 public class Icon {
@@ -11,27 +14,4 @@ public class Icon {
     private Long userID;
     private String filename;
 
-    public Long getIconID() {
-        return iconID;
-    }
-
-    public void setIconID(Long iconID) {
-        this.iconID = iconID;
-    }
-
-    public Long getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Long userID) {
-        this.userID = userID;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
 }
