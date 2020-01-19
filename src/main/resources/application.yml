@@ -1,0 +1,13 @@
+Spring:
+  thymeleaf:
+    mode: HTML
+    cache: false
+
+file:
+  root: /var/tmp/bloghbn/userdata
+
+logging:
+  level:
+    root: info
+  file:
+    path: /var/tmp/bloghbn/logs

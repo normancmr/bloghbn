@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory name="foo">
+        <!-- 数据库的连接也可以直接使用hibernate.properties文件 -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/blog</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.dialect" >org.hibernate.dialect.MySQL5Dialect</property><!-- 指定sql方言 -->
+        <property name="hibernate.show_sql">true</property><!-- 设置是否显示生成sql语句 -->
+        <property name="hibernate.format_sql">true</property><!-- 设置是否格式化sql语句-->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+        <mapping class="minru.chen.bloghbn.model.User"  />
+        <mapping class="minru.chen.bloghbn.model.Category"  />
+        <mapping class="minru.chen.bloghbn.model.Blog"  />
+        <mapping class="minru.chen.bloghbn.model.Type"  />
+        <mapping class="minru.chen.bloghbn.model.Comment"  />
+        <mapping class="minru.chen.bloghbn.model.Icon"  />
+    </session-factory>
+</hibernate-configuration>
